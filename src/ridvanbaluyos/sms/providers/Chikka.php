@@ -5,7 +5,7 @@ use ridvanbaluyos\sms\SmsProviderServicesInterface as SmsProviderServicesInterfa
 use ridvanbaluyos\sms\Sms as Sms;
 use Noodlehaus\Config as Config;
 
-class Semaphore extends Sms implements SmsProviderServicesInterface
+class Chikka extends Sms implements SmsProviderServicesInterface
 {
     private $className;
 
@@ -18,25 +18,30 @@ class Semaphore extends Sms implements SmsProviderServicesInterface
     {
         try {
             $conf = Config::load(__DIR__ . '/../config/providers.json')[$this->className];
-            $query = [
-                'from' => $conf['from'],
-                'api' => $conf['api'],
-                'number' => $phoneNumber,
+            $messageId = $this->generateMessageId(32);
+
+            $query = array(
+                'message_type' => 'SEND',
+                'mobile_number' => $phoneNumber,
+                'shortcode' => $conf['shortcode'],
+                'message_id' => $messageId,
                 'message' => $message,
-            ];
+                'client_id' => $conf['client_id'],
+                'secret_key' => $conf['secret_key'],
+            );
 
-            $url = $conf['url'] . '?' . http_build_query($query);
-
+            $query = http_build_query($query);
             $ch = curl_init();
-            curl_setopt($ch,CURLOPT_URL,$url);
+            curl_setopt($ch, CURLOPT_URL, $conf['url']);
+            curl_setopt($ch, CURLOPT_POST, count($query));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 240);
             $result = curl_exec($ch);
             $error = curl_error($ch);
             curl_close($ch);
 
             $result = json_decode($result);
-            $this->response($result->code, $result->message);
+            $this->response($result->status);
         } catch (Exception $e) {
 
         }

@@ -6,12 +6,13 @@ use ridvanbaluyos\sms\Sms as Sms;
 use ridvanbaluyos\sms\providers\PromoTexter as PromoTexter;
 use ridvanbaluyos\sms\providers\RisingTide as RisingTide;
 use ridvanbaluyos\sms\providers\Semaphore as Semaphore;
+use ridvanbaluyos\sms\providers\Chikka as Chikka;
 
 $x = new PromoTexter();
-$message = 'hi';
-$phoneNumber = '639989764990';
+$message = 'this is a test message';
+$phoneNumber = '631234567890';
 
-$provider = new Semaphore();
+// Just change the classname to either PromoTexter, RisingTide, or Semaphore
+$provider = new Chikka();
 $sms = new Sms($provider);
-
 $sms->send($phoneNumber, $message);
