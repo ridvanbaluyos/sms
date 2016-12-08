@@ -5,15 +5,31 @@ use ridvanbaluyos\sms\SmsProviderServicesInterface as SmsProviderServicesInterfa
 use ridvanbaluyos\sms\Sms as Sms;
 use Noodlehaus\Config as Config;
 
+/**
+ * Class Chikka
+ * @package ridvanbaluyos\sms\providers
+ */
 class Chikka extends Sms implements SmsProviderServicesInterface
 {
-    private $className;
+    /**
+     * @var string
+     */
+    protected $className;
 
+    /**
+     * Chikka constructor.
+     */
     public function __construct()
     {
         $this->className = substr(get_called_class(), strrpos(get_called_class(), '\\') + 1);
     }
 
+    /**
+     * This function sends the SMS.
+     *
+     * @param $phoneNumber
+     * @param $message
+     */
     public function send($phoneNumber, $message)
     {
         try {
@@ -41,7 +57,7 @@ class Chikka extends Sms implements SmsProviderServicesInterface
             curl_close($ch);
 
             $result = json_decode($result);
-            $this->response($result->status);
+            $this->response($result->status, null, $this->className);
         } catch (Exception $e) {
 
         }

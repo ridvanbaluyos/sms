@@ -10,9 +10,11 @@ use ridvanbaluyos\sms\providers\Chikka as Chikka;
 
 $x = new PromoTexter();
 $message = 'this is a test message';
-$phoneNumber = '631234567890';
+$phoneNumber = '639989764990';
 
-// Just change the classname to either PromoTexter, RisingTide, or Semaphore
-$provider = new Chikka();
-$sms = new Sms($provider);
+// Just change the classname to either PromoTexter, RisingTide, Chikka, or Semaphore.
+$provider = new PromoTexter();
+
+// If no provider is passed, it will be randomized based on the weight distribution.
+$sms = new Sms();
 $sms->send($phoneNumber, $message);

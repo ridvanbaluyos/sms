@@ -5,15 +5,31 @@ use ridvanbaluyos\sms\SmsProviderServicesInterface as SmsProviderServicesInterfa
 use ridvanbaluyos\sms\Sms as Sms;
 use Noodlehaus\Config as Config;
 
+/**
+ * Class Semaphore
+ * @package ridvanbaluyos\sms\providers
+ */
 class Semaphore extends Sms implements SmsProviderServicesInterface
 {
-    private $className;
+    /**
+     * @var string
+     */
+    protected $className;
 
+    /**
+     * Semaphore constructor.
+     */
     public function __construct()
     {
         $this->className = substr(get_called_class(), strrpos(get_called_class(), '\\') + 1);
     }
 
+    /**
+     * This function sends the SMS.
+     *
+     * @param $phoneNumber
+     * @param $message
+     */
     public function send($phoneNumber, $message)
     {
         try {
@@ -36,7 +52,7 @@ class Semaphore extends Sms implements SmsProviderServicesInterface
             curl_close($ch);
 
             $result = json_decode($result);
-            $this->response($result->code, $result->message);
+            $this->response($result->code, $result->message, $this->className);
         } catch (Exception $e) {
 
         }

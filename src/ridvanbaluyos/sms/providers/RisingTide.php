@@ -7,15 +7,31 @@ use Noodlehaus\Config as Config;
 
 date_default_timezone_set('Asia/Manila');
 
+/**
+ * Class RisingTide
+ * @package ridvanbaluyos\sms\providers
+ */
 class RisingTide extends Sms implements SmsProviderServicesInterface
 {
-    private $className;
+    /**
+     * @var string
+     */
+    protected $className;
 
+    /**
+     * RisingTide constructor.
+     */
     public function __construct()
     {
         $this->className = substr(get_called_class(), strrpos(get_called_class(), '\\') + 1);
     }
 
+    /**
+     * This function sends the SMS.
+     *
+     * @param $phoneNumber
+     * @param $message
+     */
 	public function send($phoneNumber, $message)
 	{
         try {
@@ -56,7 +72,7 @@ class RisingTide extends Sms implements SmsProviderServicesInterface
             $result = curl_exec($ch);
             $responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-            $this->response($responseCode);
+            $this->response($responseCode, null, $this->className);
         } catch (Exception $e) {
 
         }

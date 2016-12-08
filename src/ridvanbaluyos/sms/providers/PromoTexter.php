@@ -5,15 +5,31 @@ use ridvanbaluyos\sms\SmsProviderServicesInterface as SmsProviderServicesInterfa
 use ridvanbaluyos\sms\Sms as Sms;
 use Noodlehaus\Config as Config;
 
+/**
+ * Class PromoTexter
+ * @package ridvanbaluyos\sms\providers
+ */
 class PromoTexter extends Sms implements SmsProviderServicesInterface
 {
-    private $className;
+    /**
+     * @var string
+     */
+    protected $className;
 
+    /**
+     * PromoTexter constructor.
+     */
     public function __construct()
     {
         $this->className = substr(get_called_class(), strrpos(get_called_class(), '\\') + 1);
     }
 
+    /**
+     * This function sends the SMS.
+     *
+     * @param $phoneNumber
+     * @param $message
+     */
 	public function send($phoneNumber, $message)
 	{
 	    try {
@@ -21,7 +37,7 @@ class PromoTexter extends Sms implements SmsProviderServicesInterface
             $query = [
                 'senderid' => $conf['senderid'],
                 'clientid' => $conf['clientid'],
-                'passkey' => $conf['passkey'] . 'dd',
+                'passkey' => $conf['passkey'] ,
                 'msisdn' => $phoneNumber,
                 'message' => base64_encode($message),
                 'dlr-call' => $conf['dlr-call'],
@@ -39,7 +55,7 @@ class PromoTexter extends Sms implements SmsProviderServicesInterface
             curl_close($ch);
 
             $code = (intval($result) > 0) ? 202 : 403;
-            $this->response($code);
+            $this->response($code, null, $this->className);
         } catch (Exception $e) {
 
         }
