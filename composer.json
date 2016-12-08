@@ -2,7 +2,7 @@
     "name": "ridvanbaluyos/sms",
     "type": "library",
     "description": "A PHP Library built for making SMS sending easier.",
-    "keywords": ["sms", "api"],
+    "keywords": ["sms", "api", "php", "sms library", "php library"],
     "license": "MIT",
     "authors": [
         {
