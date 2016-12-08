@@ -98,7 +98,7 @@ class Sms
                 break;
             case 401:
                 $envelope = 'error';
-                $description = 'Unauthorize';
+                $description = 'Unauthorized';
                 break;
             case 403:
                 $envelope = 'error';
