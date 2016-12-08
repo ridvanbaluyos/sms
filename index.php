@@ -10,7 +10,7 @@ use ridvanbaluyos\sms\providers\Chikka as Chikka;
 
 $x = new PromoTexter();
 $message = 'this is a test message';
-$phoneNumber = '639989764990';
+$phoneNumber = '639123456789';
 
 // Just change the classname to either PromoTexter, RisingTide, Chikka, or Semaphore.
 $provider = new PromoTexter();
