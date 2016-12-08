@@ -8,7 +8,6 @@ use ridvanbaluyos\sms\providers\RisingTide as RisingTide;
 use ridvanbaluyos\sms\providers\Semaphore as Semaphore;
 use ridvanbaluyos\sms\providers\Chikka as Chikka;
 
-$x = new PromoTexter();
 $message = 'this is a test message';
 $phoneNumber = '639123456789';
 
@@ -16,5 +15,5 @@ $phoneNumber = '639123456789';
 $provider = new PromoTexter();
 
 // If no provider is passed, it will be randomized based on the weight distribution.
-$sms = new Sms();
+$sms = new Sms($provider);
 $sms->send($phoneNumber, $message);
