@@ -56,7 +56,7 @@ class Sms
 	private function randomizeProvider()
     {
         $providers = Config::load(__DIR__ . '/config/distribution.json');
-
+        $result = 'PromoTexter';
         $rand = (float)rand() / (float)getrandmax();
         foreach ($providers as $provider => $weight) {
             if ($rand < $weight) {
@@ -108,7 +108,7 @@ class Sms
                 $envelope = 'error';
                 $description = 'Not Found';
                 break;
-            case 500;
+            case 500:
                 $envelope = 'error';
                 $description = 'Something went wrong';
                 break;
@@ -126,6 +126,8 @@ class Sms
                 $description = 'Accepted';
                 break;
             default:
+                $envelope = 'data';
+                $description = '';
                 break;
         }
 
