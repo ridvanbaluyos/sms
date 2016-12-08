@@ -15,7 +15,7 @@ An SMS Provider Library for PHP
 - [Usage](#usage)
     - [Sending SMS (with Provider)](#sending-sms-with-provider)
     - [Sending SMS (with No Provider)](#sending-sms-with-no-provider)
-    - [To Follow](#to-follow)
+- [To Follow](#to-follow)
     
     
 ## Installation ##
