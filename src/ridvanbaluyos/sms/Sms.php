@@ -24,8 +24,8 @@ class Sms
      */
 	public function __construct(SmsProviderServicesInterface $smsProvider = null)
 	{
-	    // If no provider is specified, randomize by distribution percentage.
-	    if (is_null($smsProvider)) {
+        // If no provider is specified, randomize by distribution percentage.
+        if (is_null($smsProvider)) {
             $provider = 'ridvanbaluyos\\sms\\providers\\' . $this->randomizeProvider();
             $this->smsProvider = new $provider();
         } else {
