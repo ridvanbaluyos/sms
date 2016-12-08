@@ -1,0 +1,28 @@
+{
+  "PromoTexter" : {
+    "url" : "http://promotexter.com/index.php/api/send_sms",
+    "senderid" : "",
+    "clientid" : "",
+    "passkey" : "",
+    "dlr-call" : ""
+  },
+  "Semaphore" : {
+    "url" : "http://api.semaphore.co/api/sms",
+    "from" : "",
+    "api" : ""
+  },
+  "RisingTide" : {
+    "url" : "",
+    "from" : "",
+    "usagetype" : "",
+    "client_id" : "",
+    "client_password" : ""
+  },
+  "Chikka" : {
+    "url" : "https://post.chikka.com/smsapi/request",
+    "shortcode" : "",
+    "client_id" : "",
+    "secret_key" : "",
+    "request_cost" : ""
+  }
+}
