@@ -1,2 +1,1 @@
-# sms-providers
-SMS Provider library for the Philippines.
+ridvanbaluyos/sms
