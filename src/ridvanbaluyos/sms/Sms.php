@@ -16,14 +16,14 @@ class Sms
     /**
      * @var SmsProviderServicesInterface
      */
-	private $smsProvider;
+    private $smsProvider;
 
     /**
      * Sms constructor.
      * @param SmsProviderServicesInterface|null $smsProvider
      */
-	public function __construct(SmsProviderServicesInterface $smsProvider = null)
-	{
+    public function __construct(SmsProviderServicesInterface $smsProvider = null)
+    {
         // If no provider is specified, randomize by distribution percentage.
         if (is_null($smsProvider)) {
             $provider = 'ridvanbaluyos\\sms\\providers\\' . $this->randomizeProvider();
@@ -31,8 +31,7 @@ class Sms
         } else {
             $this->smsProvider = $smsProvider;
         }
-
-	}
+    }
 
     /**
      * This function sends the SMS.
@@ -40,11 +39,11 @@ class Sms
      * @param $phoneNumber - the mobile number
      * @param $message - the message
      */
-	public function send($phoneNumber, $message)
-	{
-	    $phoneNumber = $this->prepareNumber($phoneNumber);
-		$this->smsProvider->send($phoneNumber, $message . ' via ' . $this->smsProvider->className);
-	}
+    public function send($phoneNumber, $message)
+    {
+        $phoneNumber = $this->prepareNumber($phoneNumber);
+        $this->smsProvider->send($phoneNumber, $message . ' via ' . $this->smsProvider->className);
+    }
 
     /**
      * This function randomizes the SMS providers. Make sure that the total
@@ -53,7 +52,7 @@ class Sms
      *
      * @return string $result - the lucky SMS provider
      */
-	private function randomizeProvider()
+    private function randomizeProvider()
     {
         $providers = Config::load(__DIR__ . '/config/distribution.json');
         $result = 'PromoTexter';

@@ -32,8 +32,8 @@ class RisingTide extends Sms implements SmsProviderServicesInterface
      * @param $phoneNumber
      * @param $message
      */
-	public function send($phoneNumber, $message)
-	{
+    public function send($phoneNumber, $message)
+    {
         try {
             $conf = Config::load(__DIR__ . '/../config/providers.json')[$this->className];
 
@@ -76,5 +76,5 @@ class RisingTide extends Sms implements SmsProviderServicesInterface
         } catch (Exception $e) {
 
         }
-	}
+    }
 }

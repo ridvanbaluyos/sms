@@ -30,9 +30,9 @@ class PromoTexter extends Sms implements SmsProviderServicesInterface
      * @param $phoneNumber
      * @param $message
      */
-	public function send($phoneNumber, $message)
-	{
-	    try {
+    public function send($phoneNumber, $message)
+    {
+        try {
             $conf = Config::load(__DIR__ . '/../config/providers.json')[$this->className];
             $query = [
                 'senderid' => $conf['senderid'],
@@ -59,5 +59,5 @@ class PromoTexter extends Sms implements SmsProviderServicesInterface
         } catch (Exception $e) {
 
         }
-	}
+    }
 }
