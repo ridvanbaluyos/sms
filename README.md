@@ -43,8 +43,8 @@ composer require ridvanbaluyos/sms
 Make sure you register for an account and load it up. 
 
 ## Configuration ##
-1. Go to `src/ridvanbaluyos/sms/config` to `src/ridvanbaluyos/sms/config`
-2. Rename `default.providers.json` to `providers.json`
+1. Go to `src/ridvanbaluyos/sms/config` folder.
+2. Rename `default.providers.json` to `providers.json`.
 3. Fill-up the necessary fields. You need not fill up all providers, only those that you are using.
 4. In the same folder, open `providers.json` and fill up the weights. The total value should be 1.0.
 
