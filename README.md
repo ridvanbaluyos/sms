@@ -1,4 +1,4 @@
-ridvanbaluyos/sms-providers
+ridvanbaluyos/sms
 =======
 
 An SMS Provider Library for PHP 
