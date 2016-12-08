@@ -1,5 +1,6 @@
 {
     "name": "ridvanbaluyos/sms",
+    "version" : "0",
     "type": "library",
     "description": "A PHP Library built for making SMS sending easier.",
     "keywords": ["sms", "api", "php", "sms library", "php library"],
