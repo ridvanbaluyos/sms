@@ -7,6 +7,7 @@ An SMS Provider Library for PHP
 [![Latest Unstable Version](https://poser.pugx.org/ridvanbaluyos/sms/v/unstable)](https://packagist.org/packages/ridvanbaluyos/sms)
 [![Total Downloads](https://poser.pugx.org/ridvanbaluyos/sms/downloads)](https://packagist.org/packages/ridvanbaluyos/sms)
 [![Build Status](https://scrutinizer-ci.com/g/ridvanbaluyos/sms-providers/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ridvanbaluyos/sms-providers/build-status/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ridvanbaluyos/sms-providers/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ridvanbaluyos/sms-providers/?branch=master)
 [![License](https://poser.pugx.org/ridvanbaluyos/sms/license)](https://packagist.org/packages/ridvanbaluyos/sms)
 
 - [Installation](#installation)
