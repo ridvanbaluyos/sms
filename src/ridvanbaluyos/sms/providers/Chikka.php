@@ -56,7 +56,7 @@ class Chikka extends Sms implements SmsProviderServicesInterface
             curl_close($ch);
 
             $result = json_decode($result);
-            $this->response($result->status, null, $this->className);
+            $this->response($result->status, $result, null, $this->className);
         } catch (Exception $e) {
 
         }

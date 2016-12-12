@@ -87,7 +87,7 @@ class Sms
      * @param null $message - an optional message aside from the default ones
      * @param null $provider - the SMS provider used. Should only be enabled during debug mode.
      */
-    protected function response($code, $message = null, $provider)
+    protected function response($code, $metadata = null, $message = null, $provider)
     {
         switch ($code) {
             // Error Codes
@@ -138,7 +138,8 @@ class Sms
             $envelope => [
                 'code' => $code,
                 'message' => $message,
-                'provider' => $provider
+                'provider' => $provider,
+                'metadata' => $metadata
             ],
         ];
         $response = json_encode($response);

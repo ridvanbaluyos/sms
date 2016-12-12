@@ -7,6 +7,7 @@ use ridvanbaluyos\sms\providers\PromoTexter as PromoTexter;
 use ridvanbaluyos\sms\providers\RisingTide as RisingTide;
 use ridvanbaluyos\sms\providers\Semaphore as Semaphore;
 use ridvanbaluyos\sms\providers\Chikka as Chikka;
+use ridvanbaluyos\sms\providers\Nexmo as Nexmo;
 
 $message = 'this is a test message';
 $phoneNumber = '639123456789';

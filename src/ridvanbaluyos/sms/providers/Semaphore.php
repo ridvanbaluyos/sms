@@ -51,7 +51,8 @@ class Semaphore extends Sms implements SmsProviderServicesInterface
             curl_close($ch);
 
             $result = json_decode($result);
-            $this->response($result->code, $result->message, $this->className);
+
+            $this->response($result->code, $result, $result->message, $this->className);
         } catch (Exception $e) {
 
         }

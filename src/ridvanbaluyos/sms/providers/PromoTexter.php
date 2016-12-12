@@ -54,7 +54,7 @@ class PromoTexter extends Sms implements SmsProviderServicesInterface
             curl_close($ch);
 
             $code = (intval($result) > 0) ? 202 : 403;
-            $this->response($code, null, $this->className);
+            $this->response($code, $result, null, $this->className);
         } catch (Exception $e) {
 
         }
