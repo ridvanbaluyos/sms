@@ -53,7 +53,6 @@ class Chikka extends Sms implements SmsProviderServicesInterface
             curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $result = curl_exec($ch);
-            $error = curl_error($ch);
             curl_close($ch);
 
             $result = json_decode($result);

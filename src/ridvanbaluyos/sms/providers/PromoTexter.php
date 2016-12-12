@@ -51,7 +51,6 @@ class PromoTexter extends Sms implements SmsProviderServicesInterface
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_TIMEOUT, 240);
             $result = curl_exec($ch);
-            $error = curl_error($ch);
             curl_close($ch);
 
             $code = (intval($result) > 0) ? 202 : 403;

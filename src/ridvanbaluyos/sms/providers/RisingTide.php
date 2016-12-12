@@ -69,7 +69,6 @@ class RisingTide extends Sms implements SmsProviderServicesInterface
             curl_setopt($ch, CURLOPT_BINARYTRANSFER, TRUE);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $content);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-            $result = curl_exec($ch);
             $responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
             $this->response($responseCode, null, $this->className);
