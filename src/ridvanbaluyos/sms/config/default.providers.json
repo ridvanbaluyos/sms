@@ -30,5 +30,11 @@
     "api_key" : "",
     "api_secret" : "",
     "from" : "",
+  },
+  "Twilio" : {
+    "url" : "",
+    "account_side" : "",
+    "auth_token" : "",
+    "from" : ""
   }
 }

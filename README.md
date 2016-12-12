@@ -10,18 +10,18 @@ An SMS Provider Library for PHP
 [![License](https://poser.pugx.org/ridvanbaluyos/sms/license)](https://packagist.org/packages/ridvanbaluyos/sms)
 
 - [Installation](#installation)
-- [Supported SMS Providers](#supported-sms-providers)
 - [Configuration](#configuration)
 - [Usage](#usage)
     - [Sending SMS (with Provider)](#sending-sms-with-provider)
     - [Sending SMS (with No Provider)](#sending-sms-with-no-provider)
+- [Supported SMS Providers](#supported-sms-providers)
 - [To Follow](#to-follow)
     
     
 ## Installation ##
 Open your `composer.json` file and add the following to the `require` key:
 
-    "ridvanbaluyos/sms": "v0.2-alpha"
+    "ridvanbaluyos/sms": "v0.4-alpha"
 
 After adding the key, run composer update from the command line to install the package
 
@@ -33,13 +33,6 @@ Or simply add:
 ```bash
 composer require ridvanbaluyos/sms
 ```
-
-## Supported SMS Providers ##
-1. [Semaphore](http://semaphore.co/)
-2. [PromoTexter](http://www.promotexter.com/)
-3. [RisingTide](http://www.risingtide.ph/)
-4. [Chikka](http://api.chikka.com/)
-5. [Nexmo](https://www.nexmo.com)
 
 Make sure you register for an account and load up your balance. 
 
@@ -88,6 +81,14 @@ $sms = new Sms();
 $sms->send($phoneNumber, $message);
 ```
 >When no SMS provider is specified, it will be randomized based on the weights that you defined in the `distribution.json` file (eg. 0.25 is 25% chance).
+
+## Supported SMS Providers ##
+1. [Semaphore](http://semaphore.co/)
+2. [PromoTexter](http://www.promotexter.com/)
+3. [RisingTide](http://www.risingtide.ph/)
+4. [Chikka](http://api.chikka.com/)
+5. [Nexmo](https://www.nexmo.com)
+6. [Twilio](https://www.twilio.com)
 
 ## To Follow ##
 1. [Unit Testing](http://codeception.com/)

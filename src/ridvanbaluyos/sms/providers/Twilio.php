@@ -6,10 +6,10 @@ use ridvanbaluyos\sms\Sms as Sms;
 use Noodlehaus\Config as Config;
 
 /**
- * Class Nexmo
+ * Class Twilio
  * @package ridvanbaluyos\sms\providers
  */
-class Nexmo extends Sms implements SmsProviderServicesInterface
+class Twilio extends Sms implements SmsProviderServicesInterface
 {
     /**
      * @var string
@@ -17,7 +17,7 @@ class Nexmo extends Sms implements SmsProviderServicesInterface
     protected $className;
 
     /**
-     * Nexmo constructor.
+     * Twilio constructor.
      */
     public function __construct()
     {
@@ -32,15 +32,14 @@ class Nexmo extends Sms implements SmsProviderServicesInterface
      */
     public function send($phoneNumber, $message)
     {
+        $phoneNumber = '+' . $phoneNumber;
         try {
             $conf = Config::load(__DIR__ . '/../config/providers.json')[$this->className];
 
             $query = array(
-                'api_key' => $conf['api_key'],
-                'api_secret' => $conf['api_secret'],
-                'from' => $conf['from'],
-                'to' => $phoneNumber,
-                'text' => $message,
+                'To' => $phoneNumber,
+                'From' => $conf['from'],
+                'Body' => $message,
             );
 
             $query = http_build_query($query);
@@ -49,12 +48,12 @@ class Nexmo extends Sms implements SmsProviderServicesInterface
             curl_setopt($ch, CURLOPT_POST, count($query));
             curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_USERPWD, "{$conf['account_sid']}:{$conf['auth_token']}");
             $result = curl_exec($ch);
             curl_close($ch);
-
             $result = json_decode($result);
 
-            if (intval($result->messages[0]->status) === 0) {
+            if (is_string($result->status)) {
                 $this->response(200, $result, null, $this->className);
             } else {
                 $this->response(500, $result, null, $this->className);
