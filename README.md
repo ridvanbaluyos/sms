@@ -66,6 +66,9 @@ Make sure you register for an account and load up your balance.
 ## Usage ##
 ### Sending SMS with Provider ###
 ```php
+use ridvanbaluyos\sms\Sms as Sms;
+use ridvanbaluyos\sms\providers\PromoTexter as PromoTexter;
+
 $message = 'this is a test message';
 $phoneNumber = '639123456789';
 
@@ -75,6 +78,8 @@ $sms->send($phoneNumber, $message);
 ```
 ### Sending SMS with No Provider ###
 ```php
+use ridvanbaluyos\sms\Sms as Sms;
+
 $message = 'this is a test message';
 $phoneNumber = '639123456789';
 
