@@ -39,6 +39,7 @@ composer require ridvanbaluyos/sms
 2. [PromoTexter](http://www.promotexter.com/)
 3. [RisingTide](http://www.risingtide.ph/)
 4. [Chikka](http://api.chikka.com/)
+5. [Nexmo](https://www.nexmo.com)
 
 Make sure you register for an account and load up your balance. 
 
