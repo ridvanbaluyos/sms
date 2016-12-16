@@ -14,8 +14,9 @@ $message = 'this is a test message';
 $phoneNumber = '639123456789';
 
 // Just change the classname to either PromoTexter, RisingTide, Chikka, or Semaphore.
-$provider = new Twilio();
+$provider = new Semaphore();
 
 // If no provider is passed, it will be randomized based on the weight distribution.
 $sms = new Sms($provider);
-$sms->send($phoneNumber, $message);
+//$sms->send($phoneNumber, $message);
+$sms->balance();

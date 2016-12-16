@@ -57,4 +57,37 @@ class Semaphore extends Sms implements SmsProviderServicesInterface
 
         }
     }
+
+    /**
+     * This function gets the account balance.
+     *
+     */
+    public function balance()
+    {
+        try {
+            $conf = Config::load(__DIR__ . '/../config/providers.json')[$this->className];
+            $query = [
+                'api' => $conf['api'],
+            ];
+
+            $url = $conf['url'] . '/account?' . http_build_query($query);
+
+            $ch = curl_init();
+            curl_setopt($ch,CURLOPT_URL,$url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 240);
+            $result = curl_exec($ch);
+            curl_close($ch);
+
+            $result = json_decode($result);
+
+            if ($result->status === 'success') {
+                $this->response(200, $result, null, $this->className);
+            } else {
+                $this->response(500, $result->message, null, $this->className);
+            }
+        } catch (Exception $e) {
+
+        }
+    }
 }

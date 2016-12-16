@@ -59,4 +59,13 @@ class PromoTexter extends Sms implements SmsProviderServicesInterface
 
         }
     }
+
+    /**
+     * This function checks the account balance.
+     *
+     */
+    public function balance()
+    {
+        $this->response(404, [], $this->className . ' currently does not support this feature.', $this->className);
+    }
 }

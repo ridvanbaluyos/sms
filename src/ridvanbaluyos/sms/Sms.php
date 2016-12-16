@@ -46,6 +46,15 @@ class Sms
     }
 
     /**
+     * This function gets the remaining balance of an account
+     *
+     */
+    public function balance()
+    {
+        $this->smsProvider->balance();
+    }
+
+    /**
      * This function randomizes the SMS providers. Make sure that the total
      * of the SMS providers in distribution.json is equal to 1. Otherwise, there's
      * no guarantee that the randomizer will work as expected.

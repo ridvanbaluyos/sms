@@ -22,7 +22,7 @@ An SMS Provider Library for PHP
 ## Installation ##
 Open your `composer.json` file and add the following to the `require` key:
 
-    "ridvanbaluyos/sms": "v0.4-alpha"
+    "ridvanbaluyos/sms": "v0.5-alpha"
 
 After adding the key, run composer update from the command line to install the package
 
