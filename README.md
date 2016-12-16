@@ -15,6 +15,7 @@ An SMS Provider Library for PHP
 - [Usage](#usage)
     - [Sending SMS (with Provider)](#sending-sms-with-provider)
     - [Sending SMS (with No Provider)](#sending-sms-with-no-provider)
+    - [Account Balance](#account-balance)
 - [Supported SMS Providers](#supported-sms-providers)
 - [To Follow](#to-follow)
     
@@ -82,6 +83,15 @@ $sms = new Sms();
 $sms->send($phoneNumber, $message);
 ```
 >When no SMS provider is specified, it will be randomized based on the weights that you defined in the `distribution.json` file (eg. 0.25 is 25% chance).
+
+### Account Balance ###
+```php
+use ridvanbaluyos\sms\Sms as Sms;
+
+$provider = new PromoTexter();
+$sms = new Sms($provider);
+$sms->balance();
+```
 
 ## Supported SMS Providers ##
 1. [Semaphore](http://semaphore.co/)
