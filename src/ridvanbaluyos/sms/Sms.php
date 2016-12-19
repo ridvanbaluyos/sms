@@ -1,6 +1,7 @@
 <?php
 namespace ridvanbaluyos\sms;
 
+use ridvanbaluyos\sms\SmsProviderServicesInterface as SmsProviderServicesInterface;
 use ridvanbaluyos\sms\providers\PromoTexter;
 use ridvanbaluyos\sms\providers\RisingTide;
 use ridvanbaluyos\sms\providers\Semaphore;
@@ -11,7 +12,7 @@ use Noodlehaus\Config as Config;
  * Class Sms
  * @package ridvanbaluyos\sms
  */
-class Sms
+class Sms implements SmsProviderServicesInterface
 {
     /**
      * @var SmsProviderServicesInterface
