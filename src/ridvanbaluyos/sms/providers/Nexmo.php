@@ -55,9 +55,9 @@ class Nexmo extends Sms implements SmsProviderServicesInterface
             $result = json_decode($result);
 
             if (intval($result->messages[0]->status) === 0) {
-                $this->response(200, $result, null, $this->className);
+                return $this->response(200, $result, null, $this->className);
             } else {
-                $this->response(500, $result, null, $this->className);
+                return $this->response(500, $result, null, $this->className);
             }
         } catch (Exception $e) {
 
@@ -89,9 +89,9 @@ class Nexmo extends Sms implements SmsProviderServicesInterface
             $result = json_decode($result);
 
             if (is_float($result->value) || is_integer($result->value)) {
-                $this->response(200, $result, null, $this->className);
+                return $this->response(200, $result, null, $this->className);
             } else {
-                $this->response(500, $result, null, $this->className);
+                return $this->response(500, $result, null, $this->className);
             }
         } catch (Exception $e) {
 

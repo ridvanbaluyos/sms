@@ -52,7 +52,11 @@ class Semaphore extends Sms implements SmsProviderServicesInterface
 
             $result = json_decode($result);
 
-            $this->response($result->code, $result, $result->message, $this->className);
+            if ($result->status === 'success') {
+                return $this->response(202, $result, null, $this->className);
+            } else {
+                return $this->response(500, $result->message, null, $this->className);
+            }
         } catch (Exception $e) {
 
         }
@@ -82,9 +86,9 @@ class Semaphore extends Sms implements SmsProviderServicesInterface
             $result = json_decode($result);
 
             if ($result->status === 'success') {
-                $this->response(200, $result, null, $this->className);
+                return $this->response(200, $result, null, $this->className);
             } else {
-                $this->response(500, $result->message, null, $this->className);
+                return $this->response(500, $result->message, null, $this->className);
             }
         } catch (Exception $e) {
 

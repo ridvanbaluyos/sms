@@ -52,9 +52,9 @@ class PromoTexter extends Sms implements SmsProviderServicesInterface
             curl_setopt($ch, CURLOPT_TIMEOUT, 240);
             $result = curl_exec($ch);
             curl_close($ch);
-
             $code = (intval($result) > 0) ? 202 : 403;
-            $this->response($code, $result, null, $this->className);
+
+            return $this->response($code, $result, null, $this->className);
         } catch (Exception $e) {
 
         }
@@ -66,6 +66,6 @@ class PromoTexter extends Sms implements SmsProviderServicesInterface
      */
     public function balance()
     {
-        $this->response(404, [], $this->className . ' currently does not support this feature.', $this->className);
+        return $this->response(404, [], $this->className . ' currently does not support this feature.', $this->className);
     }
 }

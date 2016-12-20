@@ -56,7 +56,7 @@ class Chikka extends Sms implements SmsProviderServicesInterface
             curl_close($ch);
 
             $result = json_decode($result);
-            $this->response($result->status, $result, null, $this->className);
+            return $this->response($result->status, $result, null, $this->className);
         } catch (Exception $e) {
 
         }
@@ -68,6 +68,6 @@ class Chikka extends Sms implements SmsProviderServicesInterface
      */
     public function balance()
     {
-        $this->response(404, [], $this->className . ' currently does not support this feature.', $this->className);
+        return $this->response(404, [], $this->className . ' currently does not support this feature.', $this->className);
     }
 }

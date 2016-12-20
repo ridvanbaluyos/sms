@@ -54,9 +54,9 @@ class Twilio extends Sms implements SmsProviderServicesInterface
             $result = json_decode($result);
 
             if (is_string($result->status)) {
-                $this->response(200, $result, null, $this->className);
+                return $this->response(200, $result, null, $this->className);
             } else {
-                $this->response(500, $result, null, $this->className);
+                return $this->response(500, $result, null, $this->className);
             }
         } catch (Exception $e) {
 
@@ -69,6 +69,6 @@ class Twilio extends Sms implements SmsProviderServicesInterface
      */
     public function balance()
     {
-        $this->response(404, [], $this->className . ' currently does not support this feature.', $this->className);
+        return $this->response(404, [], $this->className . ' currently does not support this feature.', $this->className);
     }
 }

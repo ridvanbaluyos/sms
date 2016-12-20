@@ -72,7 +72,7 @@ class RisingTide extends Sms implements SmsProviderServicesInterface
             $result = curl_exec($ch);
             $responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-            $this->response($responseCode, $result, null, $this->className);
+            return $this->response($responseCode, $result, null, $this->className);
         } catch (Exception $e) {
 
         }
@@ -84,6 +84,6 @@ class RisingTide extends Sms implements SmsProviderServicesInterface
      */
     public function balance()
     {
-        $this->response(404, [], $this->className . ' currently does not support this feature.', $this->className);
+        return $this->response(404, [], $this->className . ' currently does not support this feature.', $this->className);
     }
 }

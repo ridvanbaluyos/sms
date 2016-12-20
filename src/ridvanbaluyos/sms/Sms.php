@@ -43,7 +43,7 @@ class Sms implements SmsProviderServicesInterface
     public function send($phoneNumber, $message)
     {
         $phoneNumber = $this->prepareNumber($phoneNumber);
-        $this->smsProvider->send($phoneNumber, $message . ' via ' . $this->smsProvider->className);
+        return $this->smsProvider->send($phoneNumber, $message . ' via ' . $this->smsProvider->className);
     }
 
     /**
@@ -52,7 +52,7 @@ class Sms implements SmsProviderServicesInterface
      */
     public function balance()
     {
-        $this->smsProvider->balance();
+        return $this->smsProvider->balance();
     }
 
     /**
@@ -96,6 +96,8 @@ class Sms implements SmsProviderServicesInterface
      * @param $code - the response code
      * @param null $message - an optional message aside from the default ones
      * @param null $provider - the SMS provider used. Should only be enabled during debug mode.
+     *
+     * @return string $response - the JSON formatted response.
      */
     protected function response($code, $metadata = null, $message = null, $provider)
     {
@@ -152,11 +154,10 @@ class Sms implements SmsProviderServicesInterface
                 'metadata' => $metadata
             ],
         ];
-        $response = json_encode($response);
-        http_response_code($code);
-        header("Content-Type: application/json");
-        echo $response;
-        exit;
+
+        $response = json_encode($response, JSON_PRETTY_PRINT);
+
+        return $response;
     }
 
     /**
@@ -175,5 +176,15 @@ class Sms implements SmsProviderServicesInterface
         }
 
         return $number;
+    }
+
+    /**
+     * This function returns the SMS Provider name in plain text.
+     *
+     * @return string $className - the sms provider name.
+     */
+    public function getSmsProviderName()
+    {
+        return $this->smsProvider->className;
     }
 }
