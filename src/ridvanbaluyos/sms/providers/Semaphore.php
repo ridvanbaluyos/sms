@@ -4,6 +4,7 @@ namespace ridvanbaluyos\sms\providers;
 use ridvanbaluyos\sms\SmsProviderServicesInterface as SmsProviderServicesInterface;
 use ridvanbaluyos\sms\Sms as Sms;
 use Noodlehaus\Config as Config;
+use Exception as Exception;
 
 /**
  * Class Semaphore
@@ -29,6 +30,7 @@ class Semaphore extends Sms implements SmsProviderServicesInterface
      *
      * @param $phoneNumber
      * @param $message
+     * @return string
      */
     public function send($phoneNumber, $message)
     {
