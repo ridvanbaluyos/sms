@@ -23,7 +23,7 @@ An SMS Provider Library for PHP
 ## Installation ##
 Open your `composer.json` file and add the following to the `require` key:
 
-    "ridvanbaluyos/sms": "v0.5-alpha"
+    "ridvanbaluyos/sms": "v0.6-alpha"
 
 After adding the key, run composer update from the command line to install the package
 
@@ -102,5 +102,4 @@ $sms->balance();
 6. [Twilio](https://www.twilio.com)
 
 ## To Follow ##
-1. [Unit Testing](http://codeception.com/)
-2. More SMS Providers!
+1. More SMS Providers!

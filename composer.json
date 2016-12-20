@@ -1,6 +1,6 @@
 {
     "name": "ridvanbaluyos/sms",
-    "version" : "v0.5-alpha",
+    "version" : "v0.6-alpha",
     "type": "library",
     "description": "A PHP Library built for making SMS sending easier.",
     "keywords": ["sms", "api", "php", "library", "nexmo", "twilio", "chikka"],
