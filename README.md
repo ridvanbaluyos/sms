@@ -3,6 +3,7 @@ ridvanbaluyos/sms
 
 An SMS Provider Library for PHP 
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ef172bad3ee646a5bc26e98aadffad2f)](https://www.codacy.com/app/ridvanbaluyos/sms?utm_source=github.com&utm_medium=referral&utm_content=ridvanbaluyos/sms&utm_campaign=badger)
 [![Latest Stable Version](https://poser.pugx.org/ridvanbaluyos/sms/v/stable)](https://packagist.org/packages/ridvanbaluyos/sms)
 [![Latest Unstable Version](https://poser.pugx.org/ridvanbaluyos/sms/v/unstable)](https://packagist.org/packages/ridvanbaluyos/sms)
 [![Total Downloads](https://poser.pugx.org/ridvanbaluyos/sms/downloads)](https://packagist.org/packages/ridvanbaluyos/sms)
