@@ -7,9 +7,9 @@
     "dlr-call" : ""
   },
   "Semaphore" : {
-    "url" : "http://api.semaphore.co/api/sms",
-    "from" : "",
-    "api" : ""
+    "url" : "http://api.semaphore.co/api/v4/messages",
+    "sendername" : "",
+    "apikey" : ""
   },
   "RisingTide" : {
     "url" : "",
